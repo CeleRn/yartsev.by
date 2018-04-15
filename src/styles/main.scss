@@ -1,0 +1,125 @@
+@import "functions";
+@import "variables";
+@import "breakpoints";
+$accent-color: #ff9800;
+$default-text-shadow: -1px 1px 2px rgba(0,0,0,.1);
+
+html {
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    height: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: space-around;
+    padding: 0 15px;
+    font-family: "Roboto", sans-serif;
+}
+
+.logo {
+    width: 180px;
+    @include media-breakpoint-down(sm) {
+        width: 150px;
+    }
+    @include media-breakpoint-down(xs) {
+        width: 100px;
+    }
+    &__image {
+        width: 100%;
+    }
+}
+
+.contacts {
+    align-self: flex-end;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+
+}
+
+.phone {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    font-weight: 700;
+    @include media-breakpoint-down(md) {
+        font-size: 1.5em;
+    }
+    @include media-breakpoint-down(sm) {
+        font-size: 1.2em;
+    }
+}
+
+.email {
+    font-size: 1.3em;
+    color: #333333;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(0, 0, 0, .2);
+    padding-bottom: 2px;
+    &:hover {
+        color: #000000;
+        text-decoration: none;
+        border-bottom-color: rgba(0, 0, 0, .5)
+    }
+}
+
+.list {
+    padding-left: 0;
+    margin-bottom: 0;
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    @include media-breakpoint-down(xs) {
+        flex-direction: column;
+    }
+    &__item {
+        font-size: 24px;
+        padding: 1em;
+        position: relative;
+        @include media-breakpoint-down(md) {
+            font-size: 16px;
+        }
+        @include media-breakpoint-down(sm) {
+            font-size: 14px;
+        }
+        @include media-breakpoint-down(xs) {
+            padding: .2em;
+            padding-left: 1em;
+            &:first-child:after {
+                position: absolute;
+                left: -.3em;
+                top: 50%;
+                display: block;
+                width: .5em;
+                height: .5em;
+                border-radius: .25em;
+                margin-top: -.2em;
+                background-color: $accent-color;
+                content: "";
+            }
+        }
+        &+& {
+            padding-left: 1em;
+            &:after {
+                position: absolute;
+                left: -.3em;
+                top: 50%;
+                display: block;
+                width: .5em;
+                height: .5em;
+                border-radius: .25em;
+                margin-top: -.2em;
+                background-color: $accent-color;
+                content: "";
+            }
+        }
+    }
+}
